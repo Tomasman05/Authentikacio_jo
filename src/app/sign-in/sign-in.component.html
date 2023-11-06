@@ -1,1 +1,28 @@
-<p>sign-in works!</p>
+<div class="card" style="margin: 0 auto">
+    <div class="card-body">
+        <h5 class="card-title">User login</h5>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input [(ngModel)]="userEmail" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div>
+            <button (click)="signIn()" class="btn btn-primary mb-3">Login</button>
+        </div>
+        <div>
+            <div>Don't have an account ?</div>
+            <button class="btn btn-primary mt-3" routerLink="/signup"> Sign up</button>
+            <div>or</div>
+            <button (click)="googleAuth()" type="button" class="btn btn-primary mt-3">
+                Contiune with Google
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container text-center">
+</div>

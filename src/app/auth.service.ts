@@ -16,7 +16,9 @@ export class AuthService {
 
   }
   signOut() {
+    window.alert("Logged out successfuly")
     return this.afAuth.signOut()
+    
   }
   signUp(email: any, password: any) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
@@ -25,5 +27,11 @@ export class AuthService {
     this.afAuth.currentUser.then(
       (user) => user?.sendEmailVerification()
     ).then(() => this.router.navigate(['/verifyemail'])).catch((e) => console.log("Hiba", e))
+  }
+  signIn(email:any,password:any){
+    return this.afAuth.signInWithEmailAndPassword(email,password).catch((hiba) => {
+      window.alert("Hibás bejelentkezési adatok")
+      console.log("Belépési hiba", hiba)
+    })
   }
 }
