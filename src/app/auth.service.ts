@@ -30,7 +30,6 @@ export class AuthService {
   }
   signIn(email:any,password:any){
     return this.afAuth.signInWithEmailAndPassword(email,password).catch((hiba) => {
-      window.alert("Hibás bejelentkezési adatok")
       console.log("Belépési hiba", hiba)
     })
   }

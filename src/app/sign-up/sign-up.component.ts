@@ -21,6 +21,12 @@ export class SignUpComponent {
   }
   signUp(){
     this.auth.signUp(this.userEmail,this.password)
-    .then(()=>this.auth.sendVerificationEmail())
+    .then(()=>{
+     
+      this.auth.sendVerificationEmail()
+    }).catch((hiba)=>{
+      
+      console.log(hiba)
+    })
   }
 }

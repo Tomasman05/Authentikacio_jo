@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   userEmail: any
   password: any
+  showerror=false
 
   constructor(private auth: AuthService,
     private router: Router) { }
@@ -20,6 +21,13 @@ export class SignInComponent {
       .catch((hiba) => console.log(hiba))
   }
   signIn() {
-    this.auth.signIn(this.userEmail, this.password).then(() => this.router.navigate(['/home']))
+    this.auth.signIn(this.userEmail, this.password).then(() => 
+    {
+      this.showerror=false
+      this.router.navigate(['/home'])
+    }).catch((hiba) => {
+      this.showerror=true
+      console.log(hiba)
+    })
   }
 }
